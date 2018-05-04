@@ -16,20 +16,31 @@
 } */
 
 var listUsers = {
+    users:[],
     assamble: function (user) {
         return user.lastname
             + ', '
-            + user.name
+            + user.Name
             + ' tiene '
             + user.children + ' hijos a la edad de ' + user.age;
     },
-    iterate: function (usersList) {
-        for (var i = 0; i < usersList.length; i++) {
-            console.log(listUsers.assamble(usersList[i]));
+    iterate: function () {
+        for (var i = 0; i < listUsers.users.length; i++) {
+            console.log(listUsers.assamble(listUsers.users[i]));
         }
+    },
+    setUsers: function (users){
+        listUsers.users = users;
     }
 }
-listUsers.assamble(users)
+//listUsers.assamble(users)
 
 
 
+$('#clickme').on('click',function(){
+    if($('h1').hasClass('active')){
+        $('h1').removeClass('active').addClass('disabled');
+    } else {
+        $('h1').removeClass('disabled').addClass('active');
+    }
+})
